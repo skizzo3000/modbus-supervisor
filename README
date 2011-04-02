@@ -1,0 +1,29 @@
+Ciao a tutti !!
+Questo è il mio primo progetto open source.
+Come licenza scelgo GPL GNU.
+
+Modbus-supervisor
+Si tratta di un supervisore (un master) per rete modbus. Al momento solo ModBus RTU seriale e basato sulla libreria libmodbus ver 2.9.x
+Che funzioni verranno implementate ?
+- lettura di registri e colis con salvataggio dei valori su DB mysql
+- definizione della configurazione degli slave salvata in mysql
+- definizione dell'intervallo di lettura e salvataggio
+- autoricerca velocità massima bus seriale
+- definizione del tipo di dato del registro e di un nome associato
+- interfaccia di comunicazione con altri moduli per il processo dei dati
+- GUI Web in php che pubblica i dati letti
+
+Cosa verra implementato in futuro ?
+- GUI web per generazione grafici a partire dai dati salvati in mysql
+- gui web per la configurazione delle risorse degli slave
+- gui web per la modifica dei dati dei registri in tempo reale
+- gui web multiutente e multilivello
+- demone di interfaccia con modem gsm/umts per sms
+- gui web demone sms
+- demone temporizzatore
+
+
+
+
+
+Skizzo3000
