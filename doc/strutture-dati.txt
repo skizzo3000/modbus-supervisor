@@ -1,0 +1,27 @@
+In questo file sono spiegate le strutture dati usate per contenere le informazioni delle risorse del bus.
+
+struttura slave_t
+	uint8_t 	addr 			// indirizzo slave
+
+	uint8_t 	nbits 			// numero bits totali da indirizzare
+	uint16_t 	bits[nbits][2] 	// vettore contenente l'indirizzo di ogni bit ed il corrispondente valore
+
+	uint8_t	 	nibits 			// numeno input bits da indirizzare
+	uint16_t 	ibits[nibits][2] 	// vettore contenente l'indirizzo di ogni input bit ed il corrispondente valore
+
+	uint16_t 	nregisters		// numero totale registri da indirizzare
+	uint16_t 	registers[nregisters][2]	// vettore contenente l'indirizzo di ogni registro ed il corrispondente valore
+
+	uint16_t 	niregisters	// numero totale registri di input da indirizzare
+	uint16_t 	iregisters[niregisters][2]	// vettore contenente l'idirizzo di ogni registro ed il corrispondente valore
+fine struttura slave
+
+struttura risorse_bus
+	uint8_t 	nslave			// numero totale slave
+	slave_t		slave[nslave]	// vettore contenete tutti gli slave del bus
+fine struttura
+
+Questa struttura verrà creata ed inizializzata all'avvio del programma leggendo la configurazione del bus da DB Mysql.
+I vettori verranno allocati con malloc in funzione delle risorse richieste dalla configurazione letta.
+ 
+
