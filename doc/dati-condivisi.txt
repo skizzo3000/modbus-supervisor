@@ -1,0 +1,25 @@
+Questo file descrive le modalità di accesso ai dati condivisi e le funzioni di serializzazione usate
+
+i vari processi lavoreranno con shared mem ipc
+saranno create 2 shm della stessa lunghezza destinate una a contenere i dati letti dal bus e l'altra i dati da scrivere sul bus
+nella shm saranno memorizzati i dati del bus serializzati da funzioni apposite 
+le funzioni di acccesso R/W su shm prevedono una gestione a semaforo creata appositamente utilizzando il primo e secondo byte di shm che identificherà anche la modalità di accesso.
+
+- n
+	nessuna operazione in corso
+- R
+	un processo sta leggendo shm quindi nessuno puo scrivere ma solo leggere
+- W
+	un processo sta scrivendo shm quindi nessuno puo avere accesso R/W
+- r
+	un processo è in attesa che il server legga
+- L
+	il server ha letto correttamente
+- O
+	il server ha letto e processato correttamente i dati
+- E
+	il server ha letto ma ha riscontrato un errore identificato dal secondo byte
+
+il secondo byte indica quanti processi stanno usando la risorsa contemporaneamente
+
+
