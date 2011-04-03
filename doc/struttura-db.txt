@@ -1,0 +1,41 @@
+In questo file verranno elencate le tabelle presenti nel db mysql.
+
+tabella slave_tab
+slave_addr	name	descrizione	abilitato	errori	note
+
+- slave_addr 
+	è il numero del nodo slave
+- name 
+	è il nome breve che si vuole assegnare alla periferica
+- descrizione 
+	è una riga di testo che chiarifica la funzione della periferica
+- abilitato 
+	è un flag bool che determina se lo slave fa parte delle periferiche controllate dal programma o meno,
+	un suo utilizzo: creo gia tutti gli slave a livello DB ma solo una parte di essi è fisicamente presente sul bus,
+	oppure uno di questi è guasto e rallenta il bus e quindi lo disattivo (questa funzione puo essere anche automatica 
+	con notifica dell'operazione)
+- errori 
+	è un campo testo dove viene scritto in tempo reale se ci sono errori relativi allo slave
+- note 
+	è un campo testo libero
+
+
+
+
+tabelle slave_name-slave_addr
+address	name tipo	dato(uint32)	descrizione
+
+- address
+	è l'indirizzo modbus del registro/coil nel formato 00001, 10001, 30001, 40001
+- name
+	è il nome breve che identifica il contenuto
+- tipo
+	è un campo a scelta multipla forzata dal tipo di indirizzo:
+	bool (coil), Word(uint16), DoubleW(uint32) (con uint32 è implicitamente utilizzato anche address+1)
+- dato
+	è un campo uint32 che contiene il valore del registro/coil associato
+- descrizione
+	è un campo testo libero
+
+
+
